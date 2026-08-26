@@ -1,0 +1,435 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  font-family: Montserrat, sans-serif;
+  color: #111;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+.hero,
+.zifri,
+.comanda,
+.contact,
+.footer {
+  width: 100%;
+  max-width: 1577px;
+  padding-inline: 24px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  row-gap: 20px;
+  padding-block: 40px 80px;
+}
+
+.hero__logo {
+  width: 180px;
+  margin-bottom: 100px;
+}
+
+.hero__title {
+  max-width: 18ch;
+  font-family: Abel, sans-serif;
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.hero__text {
+  max-width: 42ch;
+  color: #444;
+  font-size: 18px;
+}
+
+.hero__cta {
+  display: grid;
+  place-items: center;
+  min-width: 308px;
+  height: 52px;
+  padding-inline: 28px;
+  background-color: #0000ff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.hero__cta:hover {
+  background-color: #0000cc;
+}
+
+.zifri {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 48px;
+  /* background-color: #0b0b0b; */
+  color: #fff;
+}
+
+.zifri__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 20px;
+}
+
+.zifri__item {
+  display: grid;
+  justify-items: center;
+  row-gap: 4px;
+}
+
+.zifri__number {
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1;
+  color: #4d4dff;
+}
+
+.zifri__caption {
+  font-size: 18px;
+  color: #181818;
+}
+
+.comanda {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 32px;
+  padding-block: 80px;
+}
+
+.comanda__title {
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.comanda__grid {
+  display: grid;
+  grid-template-columns: 184fr 246fr 210fr;
+  grid-template-rows: 158fr 49fr 165fr 240fr;
+  grid-template-areas:
+    "office  portrait work"
+    "team    team     work"
+    "team    team     awards"
+    "meeting studio   studio";
+  gap: 20px;
+  aspect-ratio: 682 / 646;
+}
+
+.comanda__item {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.comanda__item--office {
+  grid-area: office;
+}
+
+.comanda__item--portrait {
+  grid-area: portrait;
+}
+
+.comanda__item--work {
+  grid-area: work;
+}
+
+.comanda__item--team {
+  grid-area: team;
+}
+
+.comanda__item--awards {
+  grid-area: awards;
+}
+
+.comanda__item--meeting {
+  grid-area: meeting;
+}
+
+.comanda__item--studio {
+  grid-area: studio;
+}
+
+.comanda__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 32px;
+  align-items: start;
+  padding-block: 80px;
+  background-color: #f4f4f4;
+}
+
+.contact__title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.contact__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact__field {
+  display: grid;
+  row-gap: 8px;
+}
+
+.contact__field--wide {
+  grid-column: 1 / -1;
+}
+
+.contact__label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact__input,
+.contact__textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background-color: #fff;
+  font: inherit;
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+  outline: 2px solid #0000ff;
+  outline-offset: 1px;
+}
+
+.contact__textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact__button {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  justify-self: start;
+  min-width: 180px;
+  height: 52px;
+  padding-inline: 28px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0000ff;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contact__button:hover {
+  background-color: #0000cc;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 24px;
+  padding-block: 32px;
+  background-color: #fff;
+  color: #181818;
+}
+
+.footer__socials {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  column-gap: 24px;
+}
+
+.footer__social-link {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer__social-link:hover {
+  color: #4d4dff;
+}
+
+.footer__phone {
+  justify-self: end;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer__copyright {
+  justify-self: start;
+  color: #9a9a9a;
+}
+
+@media (max-width: 1024px) {
+
+  .hero,
+  .zifri,
+  .comanda,
+  .contact,
+  .footer {
+    padding-inline: 20px;
+  }
+
+  .hero,
+  .comanda,
+  .contact {
+    padding-block: 48px;
+  }
+
+  .comanda__title,
+  .contact__title {
+    font-size: 50px;
+  }
+
+  .zifri__list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+
+  .comanda__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, minmax(160px, 22vw));
+    grid-template-areas:
+      "office  portrait"
+      "work    work"
+      "team    awards"
+      "meeting studio";
+    aspect-ratio: auto;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__form {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 16px;
+  }
+
+  .footer__phone,
+  .footer__copyright {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero,
+  .zifri,
+  .comanda,
+  .contact,
+  .footer {
+    padding-inline: 16px;
+    justify-items: center;
+  }
+
+  .hero,
+  .comanda,
+  .contact,
+  .zifri {
+    padding-block: 32px;
+  }
+
+  .hero__title {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .comanda__title,
+  .contact__title {
+    font-size: 40px;
+  }
+
+  .hero__text {
+    font-size: 16px;
+    justify-content: center;
+  }
+
+  .hero__cta,
+  .contact__button {
+    min-width: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zifri__list {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .zifri__number {
+    font-size: 32px;
+  }
+
+  .comanda__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 180px);
+    grid-template-areas:
+      "office"
+      "portrait"
+      "work"
+      "team"
+      "awards"
+      "meeting"
+      "studio";
+  }
+
+  .footer__socials {
+    grid-auto-flow: row;
+    row-gap: 12px;
+  }
+
+  .footer__phone,
+  .footer__copyright,
+  .footer__phone {
+    justify-self: center;
+  }
+}

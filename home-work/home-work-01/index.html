@@ -1,9 +1,193 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home work 01</title>
+    <title>Bionic+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="hero">
+      <img class="hero__logo" src="img/logo.svg" alt="Bionic+" />
+
+      <h1 class="hero__title">Ми працюємо як частина вашої команди</h1>
+      <p class="hero__text">
+        Ми віримо, що: «Щирий сервіс - це коли робиш не тільки те, що маєш, але
+        ще й те, чого можеш і не робити»
+      </p>
+      <a class="hero__cta" href="#contact">Завантажити презентацію</a>
+    </header>
+
+    <section class="zifri">
+      <ul class="zifri__list">
+        <li class="zifri__item">
+          <p class="zifri__number">10</p>
+          <p class="zifri__caption">Років на ринку</p>
+        </li>
+        <li class="zifri__item">
+          <p class="zifri__number">+100</p>
+          <p class="zifri__caption">клієнтів</p>
+        </li>
+        <li class="zifri__item">
+          <p class="zifri__number">6000</p>
+          <p class="zifri__caption">проєктів</p>
+        </li>
+        <li class="zifri__item">
+          <p class="zifri__number">30</p>
+          <p class="zifri__caption">Співробітників</p>
+        </li>
+        <li class="zifri__item">
+          <p class="zifri__number">300</p>
+          <p class="zifri__caption">Складів</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="comanda">
+      <h2 class="comanda__title">Команда</h2>
+      <ul class="comanda__grid">
+        <li class="comanda__item comanda__item--office">
+          <img
+            class="comanda__photo"
+            src="img/foto01.jpeg"
+            alt="Офіс агенції"
+          />
+        </li>
+        <li class="comanda__item comanda__item--portrait">
+          <img
+            class="comanda__photo"
+            src="img/foto04.jpg"
+            alt="Керівник агенції"
+          />
+        </li>
+        <li class="comanda__item comanda__item--work">
+          <img
+            class="comanda__photo"
+            src="img/foto03.jpg"
+            alt="Робота над проєктом"
+          />
+        </li>
+        <li class="comanda__item comanda__item--team">
+          <img
+            class="comanda__photo"
+            src="img/foto02.jpg"
+            alt="Команда в студії"
+          />
+        </li>
+        <li class="comanda__item comanda__item--awards">
+          <img
+            class="comanda__photo"
+            src="img/foto05.jpg"
+            alt="Команда з нагородами"
+          />
+        </li>
+        <li class="comanda__item comanda__item--meeting">
+          <img
+            class="comanda__photo"
+            src="img/foto06.jpg"
+            alt="Переговорна кімната"
+          />
+        </li>
+        <li class="comanda__item comanda__item--studio">
+          <img
+            class="comanda__photo"
+            src="img/foto07.jpg"
+            alt="Студія агенції"
+          />
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="contact__title">Зробити майбутнє бренду успішним</h2>
+      <form class="contact__form" action="#" method="post">
+        <div class="contact__field">
+          <label class="contact__label" for="name">Ім’я</label>
+          <input
+            class="contact__input"
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Ваше ім’я"
+            required
+          />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label" for="phone">Телефон</label>
+          <input
+            class="contact__input"
+            id="phone"
+            type="tel"
+            name="phone"
+            placeholder="+38 0XX XXX XX XX"
+            required
+          />
+        </div>
+
+        <div class="contact__field contact__field--wide">
+          <label class="contact__label" for="email">Email</label>
+          <input
+            class="contact__input"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="name@email.com"
+          />
+        </div>
+
+        <div class="contact__field contact__field--wide">
+          <label class="contact__label" for="message">Повідомлення</label>
+          <textarea
+            class="contact__textarea"
+            id="message"
+            name="message"
+            placeholder="Розкажіть про ваш проєкт"
+          ></textarea>
+        </div>
+
+        <button class="contact__button" type="submit">Надіслати</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__copyright">©promogroup 2026</p>
+      <ul class="footer__socials">
+        <li class="footer__socials-item">
+          <a
+            class="footer__social-link"
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+        </li>
+        <li class="footer__socials-item">
+          <a
+            class="footer__social-link"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Facebook</a
+          >
+        </li>
+        <li class="footer__socials-item">
+          <a
+            class="footer__social-link"
+            href="https://www.behance.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Behance</a
+          >
+        </li>
+      </ul>
+      <a class="footer__phone" href="tel:+380441234567">3 8095 500 63 40</a>
+    </footer>
+  </body>
 </html>
