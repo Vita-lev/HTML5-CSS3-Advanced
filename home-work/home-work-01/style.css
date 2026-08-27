@@ -52,8 +52,13 @@ a {
 }
 
 .hero__logo {
+  display: block;
   width: 180px;
   margin-bottom: 100px;
+}
+
+.hero__logo img {
+  width: 100%;
 }
 
 .hero__title {
