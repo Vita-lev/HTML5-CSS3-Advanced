@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>linear-gradient</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            width: 400px;
+            height: 320px;
+            /*Лінійний градієнт створюється за допомогою двох і більше кольорів,
+               для яких задано напрямок, або лінія градієнта*/
+            /*Лінійний градієнт можна визначити як у градусах,
+             так і ключовими словами:
+            to top, to right, to bottom, to left*/
+            background: linear-gradient(90deg, red, yellow, green);
+            /*Відсоткове співвідношення кольорів на лінії градієнта*/
+            /* background: linear-gradient(90deg, red 15%, yellow 25%, green 80%); */
+            /*Точне визначення кольорів – без переходу*/
+            /* background: linear-gradient(90deg, green 33%, gold 33%, gold 66%, red 66%); */
+            /*Поєднання градієнта та фонового малюнка*/
+            /* background: linear-gradient(
+                315deg, 
+                rgb(239, 13, 13), 
+                rgba(24, 240, 4, 0.412)), 
+                url("flowers.jpg"); */
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Linear-gradient</div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>keyframes</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            font-size: 30px;
+            background-color: blue;
+            border: 2px solid black;
+            /* Без початкового значення анімація може бути не плавною */
+            /* line-height: 50px; */
+            animation: animationName 5s infinite;
+        }
+
+        /* Правило @keyframes містить ім'я анімації елемента, який пов'язує правило та блок оголошення елемента */
+        /*@-moz-keyframes animationName - Для Mozilla Firefox
+        @-webkit-keyframes animationName - Google Chrome
+        @-o-keyframes animationName - Opera*/
+        @keyframes animationName {
+
+            /* Ключові кадри створюються за допомогою ключових слів from та to, або процентного співвідношення часу */
+            0%{
+                background-color: gold;
+            }
+
+            50%{
+                background-color: green;
+                line-height: 200px;
+            }
+            /*   
+            100%{
+                border-bottom: 30px solid red;
+                background-color: pink;
+            }
+            */
+        }
+
+        /* Створення анімації починається з встановлення ключових кадрів
+        правила @keyframes. Кадри визначають, які характеристики на якому етапі будуть анімовані */
+    </style>
+</head>
+
+<body>
+    <div>Animation DIV</div>
+</body>
+
+</html>

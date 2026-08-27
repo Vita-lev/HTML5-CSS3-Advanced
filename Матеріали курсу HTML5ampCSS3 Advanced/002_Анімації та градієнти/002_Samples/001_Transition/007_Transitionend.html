@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>transitionend event</title>
+    <meta charset="utf-8" />
+    <style>
+        .block-linear {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            font-size: 25px;
+            /*Усі властивості змінюються за 3с*/
+            /* transition: all linear 3s; */
+            transition: width 3s, font-size 1.5s, box-shadow .5s;
+            margin: 5px;
+        }
+
+        .block-linear:hover {
+            width: 790px;
+            font-size: 40px;
+            box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block-linear">Лінійна функція</div>
+    <hr>
+    <p></p>
+    <script>
+        let div = document.getElementsByTagName("div")[0];
+        let p   = document.querySelector('p');
+        // Подія закінчення переходу
+        div.addEventListener("transitionend", function (e) {
+            let message = "Властивості зміненого елемента: ";
+            let styles = getComputedStyle(div)
+            message += styles.width + " - ширина елемента;  ";
+            message += styles.border + " - колір межі елемента;  ";
+            message += styles.boxShadow + " - тінь елемента;  ";
+            p.innerHTML += `${message}<br>`;
+            console.log(message);
+        }, true)
+    </script>
+
+</body>
+
+</html>

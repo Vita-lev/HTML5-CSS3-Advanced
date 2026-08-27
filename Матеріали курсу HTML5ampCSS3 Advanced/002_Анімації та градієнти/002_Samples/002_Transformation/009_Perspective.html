@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <style>
+    /*perspective властивість активує 3D-простір для елемента. Властивість perspective та функція perspective()
+     додають глибину елементу, збільшуючи його розміри осі Z, сам елемент при цьому стає
+      візуально менше. Чим менше значення, тим ближче Z-простір до глядача і тим більший ефект,
+      заданий за допомогою властивості transform*/
+    /*Чим більше значення, тим менший ефект. 0 означає відсутність перспективи*/
+    .parent {
+      border: 2px solid #000;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* perspective: 100px; */
+    }
+
+    .child {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      transform: rotateY(0deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .child::before {
+      content: '';
+      width: 30px;
+      height: 30px;
+      background: black;
+      border-radius: 50%;
+    }
+  </style>
+
+  <div class="parent">
+    <div class="child">
+      Element
+    </div>
+  </div>
+
+
+  <script>
+
+    const parent = document.querySelector('.parent');
+    const child = document.querySelector('.child');
+    // Змінити значення між 100 та 1000
+    let perspective = 100;
+    let angle = 0;
+    setInterval(function () {
+      angle += 10;
+      parent.style.perspective = `${perspective}px`;
+      child.style.transform = `rotateY(-${angle}deg)`;
+      console.log(`спрацював setInterval`);
+    }, 1000)
+
+  </script>
+
+</body>
+
+</html>

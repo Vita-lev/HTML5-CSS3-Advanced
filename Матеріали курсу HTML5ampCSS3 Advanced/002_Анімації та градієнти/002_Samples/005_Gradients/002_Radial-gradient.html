@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>radial-gradient</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            width: 400px;
+            height: 320px;
+            /*Визначення радіального градієнта*/
+            /* background: radial-gradient(black, lightgray, white); */
+            /*Позиція центру задається за допомогою ключових слів,
+               використовуються у властивості background-position*/
+            /* background: radial-gradient(at left, black, lightgray, white) */
+            /* background: radial-gradient( at 100% 50%, black, green); */
+            /*Пара значень, зазначених у одиницях довжини %, em або px - управляє розміром еліпсообразного градієнта (ширина, висота)*/
+            /* background: radial-gradient( 50% 25%, blue, gold); */
+            /*Центр розповсюдження градієнта*/
+            /* background: radial-gradient(circle at 20% 10%, white, yellow, orange); */
+            /*Відсоткове співвідношення кольорів*/
+            /*Від 0px до 100px   – чистий зелений. 
+              Від 50px до 150px – градієнт від зеленого до синього. 
+              Від 150px до 200px – градієнт від синього до помаранчевого. 
+              Від 200px - чистий помаранчевий*/
+            background: radial-gradient(60% 80%, green 50px, blue 150px, orange 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <div>Radial-gradient</div>
+</body>
+
+</html>

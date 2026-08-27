@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .container{
+            border: 3px solid red;
+            height: 300px;
+            width: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .block{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*Ім'я анімації*/
+            animation-name: move;
+            /* Напрямок анімації */
+            /*  alternate: Анімація програється з початку до кінця, 
+                           потім у зворотному напрямку
+                alternate-reverse: Анімація програється з кінця до початку, 
+                                   потім у зворотному напрямку
+                reverse: Анімація програється з кінця */
+            animation-duration: 5s;
+            /* Затримка перед запуском анімації*/
+            animation-delay: 2s;
+            animation-iteration-count: 2;
+            animation-direction: alternate-reverse;
+            /*Стан елемента до та після відтворення анімації*/
+            /*  forwards Відтворює анімацію до останнього кадру після закінчення останнього повтору і не відмотує її до первісного стану
+                backwards Повертає стан елемента після завантаження сторінки до першого кадру, навіть якщо встановлено затримку animation-delay, і залишає його там, доки не почнеться анімація */
+            /* animation-fill-mode: backwards; */
+            /*Функція переходу*/
+            animation-timing-function: linear;
+            /* animation: move 5s; */
+            /*Скорочений запис*/
+            /* animation: move 5s linear 0s infinite alternate forwards; */
+        }
+
+        .container:hover .block{
+            animation-play-state: paused;
+        }
+
+        /*Правило @keyframes містить ім'я анімації елемента, яке пов'язує правило та блок оголошення елемента*/
+        @keyframes move {
+            20%{
+                top: 100px;
+                left: 100px;
+            }
+            40%{
+                top: 0px;
+                left: 200px;
+            }
+            60%{
+                top: 200px;
+                left: 300px;
+            }
+            80%{
+                top: 0px;
+                left: 400px;
+            }
+            100%{
+                top: 200px;
+                left: 400px;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="block"></div>
+    </div>
+
+</body>
+</html>

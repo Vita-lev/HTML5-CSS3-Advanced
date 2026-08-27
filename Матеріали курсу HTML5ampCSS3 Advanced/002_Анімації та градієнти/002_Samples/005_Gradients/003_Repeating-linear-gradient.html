@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>repeating-linear-gradient</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            width: 400px;
+            height: 300px;
+            /*Без переходу*/
+            background: repeating-linear-gradient(90deg, red 20px, green 120px);
+            /*Перехід: починаючи від 0px до 10px - червоний колір, 
+              від 10px до 20px - перехід від червоного до зеленого,
+              від 20px до 80px – перехід від зеленого до жовтого. 
+              Після – все повторюється */
+            /* background: repeating-linear-gradient(75deg, red 0px, red 10px, green 20px, yellow 80px) */
+        }
+    </style>
+</head>
+
+<body>
+    <div>Repeating linear-gradient</div>
+</body>
+
+</html>

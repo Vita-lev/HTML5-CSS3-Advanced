@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- До CDN стилів анімації -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Локальний шлях до анімації -->
+    <!-- animate.css розгорнутий код усіх анімацій без мініфікації -->
+    <link rel="stylesheet" href="animate.css">
+    <!-- animate.min.css мініфікований код усіх анімацій -->
+    <link rel="stylesheet" href="animate.min.css">
+    <!-- Вивчіть папку animate.css-main в якій є безліч файлів та папок,
+         там надано різні способи підключити анімації до проекту -->
+    <!-- Звідти вам необхідно взяти тільки ті файли, 
+         які вам потрібні в залежності від способу підключення.
+         animate.css до проекту, наприклад: 
+         тут локально було взято файли animate.css і animate.min.css,
+         Ще можливий варіант не тягнути зайвий код, 
+         що не використовується на сайті -
+         це взяти необхідну анімацію у папках під своєю назвою.
+    -->
+</head>
+
+<body style="text-align: center; padding: 50px;">
+    <!-- Звертайте увагу на версії файлів, з якими працюєте! -->
+    <!-- На даний момент версія 4.1.1, що можна прочитати на сайті
+          посиланням нижче або у файлі animate.css тощо -->
+    <!-- https://animate.style/ -->
+    <!-- https://github.com/animate-css/animate.css -->
+    <h1 class="animate__animated animate__bounce">Animate.css</h1>
+    <h2 class="animate__heartBeat animate__animated animate__delay-3s animate__repeat-3">Cyberbionic</h2>
+    <button class="btn">Make a request</button>
+
+    <script>
+
+        const btn = document.querySelector('.btn');
+
+
+        btn.addEventListener('click', function(){
+            this.classList.add('animate__animated', 'animate__pulse');
+            setTimeout(()=> this.classList.remove('animate__animated', 'animate__pulse'), 1000)
+        })
+
+    </script>
+</body>
+
+</html>

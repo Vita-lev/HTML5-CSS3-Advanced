@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>skew</title>
+    <meta charset="utf-8" />
+    <style>
+        body{
+            display: flex;
+        }
+        .block {
+            width: 200px;
+            height: 100px;
+            margin-right: 20px;
+            margin: 150px 50px;
+            border: 2px solid #000;
+        }
+        .block div {
+            width: 200px;
+            height: 80px;
+            background-color: lightblue;
+            font-size: 20px;
+            color: #808080;
+            float:left;
+            transition: 1s;
+        }
+
+        .block-skew1:active {
+            /*skew - Використовується для деформування (перекручування) сторін елемента відносно координатних осей*/
+            transform:skew(45deg, 45deg);
+        }
+
+        .block-skew2:active {
+          transform:skewX(45deg);
+        }
+       .block-skew3:active {
+            transform:skewY(45deg);
+       }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <div class="block-skew1">Skew 45deg 45deg</div>
+    </div>
+    <div class="block">
+        <div class="block-skew2">SkewX 45deg</div>
+    </div>
+    <div class="block">
+        <div class="block-skew3">SkewY 45deg</div>
+    </div>
+
+</body>
+</html>

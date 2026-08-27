@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>translate</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            width: 120px;
+            height: 120px;
+            background-color: lightblue;
+            font-size: 25px;
+            color: #808080;
+            margin: 30px;
+            float:left;
+        }
+
+        .block-TranslateX:active {
+            /*translate - рухає елемент у різних напрямках осі Х*/
+            transform:translateX(40px);
+        }
+        .block-TranslateY:active {
+            /*translate - рухає елемент у різних напрямках осі У*/
+            transform:translateY(40px);
+        }
+        .block-Translate1:active {
+            /*translate - рухає елемент у різних напрямках осі Х,У*/
+            transform:translate(40px, 0);
+        }
+
+        .block-Translate2:active {
+            transform:translate(0, -40px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="block-TranslateX">TranslateX (40px,0)</div>
+    <div class="block-TranslateY">TranslateY (40px,0)</div>
+    <div class="block-Translate1">Translate (40px,0)</div>
+    <div class="block-Translate2">Translate (0, -30px)</div>
+</body>
+</html>
