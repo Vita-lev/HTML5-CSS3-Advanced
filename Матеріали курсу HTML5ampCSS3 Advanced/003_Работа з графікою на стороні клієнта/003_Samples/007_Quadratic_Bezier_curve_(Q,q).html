@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        svg {
+            border: 2px solid rgb(16, 50, 188);
+            margin-bottom: 10px;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>quadratic Bezier curve (Q,q)</h2>
+    <h3>Абсолютні координати</h3>
+    <svg>
+        <!-- Змінюйте значення відразу у двох параметрів path і circle щоб розуміти як
+             тягне лінію напрямна точка -->
+        <!--                 X👇  Y👇 -->
+        <path d="M 100 100 Q 100 300 200 200" stroke="blue" stroke-width="5" fill="none" />
+        <!--                X👇   Y👇 -->
+        <circle r="10" cx="100" cy="300">
+    </svg>
+    <br>
+    <h3>Відносні координати</h3>
+    <svg>
+        <!-- Змінюйте значення відразу у двох параметрів path і circle щоб розуміти як
+             тягне лінію напрямна точка -->
+        <!-- У цьому прикладі значення circle
+                має бути на 100 більше ніж у path -->
+        <!--                 X👇  Y👇 -->
+        <path d="M 100 100 q 100 300 200 200" stroke="blue" stroke-width="5" fill="none" />
+        <!--                X👇   Y👇 -->
+        <circle r="10" cx="200" cy="400">
+    </svg>
+    <br>
+    
+
+</body>
+
+</html>

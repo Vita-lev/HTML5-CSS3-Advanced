@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        svg {
+            border: 2px solid rgb(16, 50, 188);
+            margin-bottom: 10px;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Атрибут/Властивість Transform</h2>
+    <h3>Значення translate()</h3>
+    <svg>
+        <!-- translate зміщує позицію фігури по осі X,Y -->
+        <path d="M150,100 v50 50 h50 50 v-50 -50 z
+                 m50 50 l0 -90 " transform="translate(150, 200)" style="stroke:blue; stroke-width:4; fill:none;" />
+    </svg>
+    <h3>Значення scale()</h3>
+    <svg>
+        <!-- scale Масштабує фігуру по осі X,Y -->
+        <path d="M150,100 v50 50 h50 50 v-50 -50 z
+                 m50 50 l0 -90 " transform="scale(0.4, 2)" style="stroke:blue; stroke-width:4; fill:none;" />
+        <!-- Вказавши одне значення масштабує відразу по обох осях X,Y однаково -->
+        <path d="M150,100 v50 50 h50 50 v-50 -50 z
+                 m50 50 l0 -90 " transform="scale(1.5)" style="stroke:red; stroke-width:4; fill:none;" />
+    </svg>
+    <h3>Значення rotate()</h3>
+    <svg>
+        <!-- rotate обертає фігуру-->
+        <!-- В атрибуті вказувати лише число без приставок!
+              За замовчуванням працює з deg -->
+        <path d="M150,100 v50 50 h50 50 v-50 -50 z
+                 m50 50 l0 -90 " transform="rotate(25)" style="stroke:green; stroke-width:4; fill:none;" />
+        <!-- Поворот можна вказати в CSS (style нижче за кодом)  -->
+        <!-- deg  - Один градус дорівнює 1/360 повного кола
+             grad - Один град складає 1/400 повного кола
+             rad  - Радіан - це довжина діаметра кола навколо дуги фігури.
+                    Один радіан дорівнює 180 градусів або 1/2 повного кола.
+                    Один повний круг дорівнює 2π радіанам, що дорівнює 6,2832 рад або
+                    360 градусів
+             turn - Один оборот – це одне повне коло. Таким чином,
+                    половина кола дорівнює 0,5 обороту або 180 градусів
+        -->
+        <!-- Зазвичай використовуються лише значення з deg! -->
+        <path class="square" d="M150,100 v50 50 h50 50 v-50 -50 z
+                 m50 50 l0 -90 " style="stroke:gold; stroke-width:4; fill:none;" />
+
+    </svg>
+    <style>
+        .square {
+            rotate: -25deg;
+            /* transform: rotate(-25deg); */
+            /* transform: rotate(-30grad);*/
+            /* transform: rotate(1rad); */
+            /* transform: rotate(1.1turn); */
+        }
+    </style>
+    <h3>Значення skewX() та skewY()</h3>
+    <svg>
+        <!-- Корисне посилання за прикладом!👇 -->
+        <!-- https://codepen.io/thebabydino/pen/JoQRdb -->
+        <!-- skewX викривляє фігуру по осі X -->
+        <path d="M50,100 v50 50 h50 50 v-50 -50 z
+             m50 50 l0 -90 " transform="skewX(10)" style="stroke:blue; stroke-width:4; fill:none;" />
+        <!-- skewY викривляє фігуру по осі Y-->
+        <path d="M250,100 v50 50 h50 50 v-50 -50 z
+             m50 50 l0 -90 " transform="skewY(10)" style="stroke:red; stroke-width:4; fill:none;" />
+    </svg>
+    <h3>Комбінації значень/ суміщення ефектів</h3>
+    <style>
+        .figure{
+            transform: rotate(20deg) scale(1.5) translateY(-200px) skewY(30deg);
+        }
+    </style>
+    <svg>
+        <path class="figure" d="M150,150 v50 50 h50 50 v-50 -50 z
+             m50 50 l0 -90 " style="stroke:blue; stroke-width:4; fill:none;" />
+    </svg>
+</body>
+
+</html>

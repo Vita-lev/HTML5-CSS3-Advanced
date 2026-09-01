@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body{
+            padding: 100px;
+        }
+        svg{
+            border: 2px solid gray;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Технологія svg це не HTML! хоч її можна прописати в хтмл коді -->
+    <!-- rect прямокутник з чорним кольором тла за промовчанням -->
+    <svg>
+        <!-- Стандартні властивості css для svg не працюють! -->
+        <rect width="250" height="150" style="background: red;"></rect>
+    </svg>
+    <br>
+    <svg >
+        <!-- Атрибут fill змінює колір тла -->
+        <!-- Атрибут rx робить заокруглення по краях елемента -->
+        <rect fill="blue"  rx="60" width="200" height="200"></rect>
+    </svg>
+    <br>
+    <svg>
+        <!-- Елемент кола атрибути cx,cy визначають позицію елемента -->
+        <!-- r - radius, cx - center X, cy - center Y -->
+        <circle r="100" cx="200" cy="200"></circle>
+    </svg>
+    <br>
+    <svg>
+        <!-- Фігура еліпса, стилізується за подібним принципом, як і circle -->
+        <ellipse rx="50" ry="150" cx="50" cy="150"></ellipse>
+    </svg>
+    <br>
+    <svg>
+        <!-- polygon надає можливість виставляти будь-яку кількість точок
+             за якими створюється власна фігура -->
+        <!-- 10 10 точки верхнього лівого кута трикутника -->
+        <!-- 140 0 точки верхнього правого кута трикутника -->
+        <!-- 40 290 точки нижнього кута трикутника -->
+        <!-- можна розділяти комами -->
+        <polygon points="10 10 140 0 40 290"></polygon>
+        <!-- <polygon points="10, 10 140, 0 40, 290"></polygon> -->
+    </svg>
+    <br>
+    <svg>
+        <!-- stroke-width - ширина лінії за замовчуванням 1 -->
+        <!-- stroke колір лінії -->
+        <line x1='130' y1="160" x2="10" y2="10" stroke-width="5" stroke="gold"></line>
+    </svg>
+    <br>
+    <svg>
+        <!-- polyline - створення безлічі ліній одна за одною -->
+        <polyline points="50,10 70,130 100,80 130,180 190,10" stroke-width="5" stroke="yellow" fill="lightgray"></polyline>
+    </svg>
+
+
+
+
+</body>
+
+</html>

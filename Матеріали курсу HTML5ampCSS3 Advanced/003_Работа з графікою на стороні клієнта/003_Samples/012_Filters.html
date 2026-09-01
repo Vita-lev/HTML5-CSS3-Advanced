@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Фильтры</title>
+    <style>
+      svg {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--Розмиття-->
+    <svg>
+      <!-- stdDeviation Визначення рівня розмиття 
+         чим більше значення тим більше розмиття -->
+      <!-- x,y вказівка наскільки видно фігуру 
+            (значення з 0 по 1 або в % з 0 по 100)
+            можна ставити від'ємні значення
+         -->
+      <defs>
+        <filter id="f1" x="0.5" y="0" w idth="0.78" height="9">
+          <feGaussianBlur stdDeviation="2" />
+        </filter>
+      </defs>
+      <!-- <filter id="f1" x="0%" y="0%" width="100%" height="100%">
+                <feGaussianBlur stdDeviation="1" />
+            </filter> -->
+
+      <rect
+        width="100"
+        height="90"
+        x="20"
+        y="20"
+        stroke="green"
+        stroke-width="3"
+        fill="yellow"
+        filter="url(#f1)"
+      />
+    </svg>
+  </body>
+</html>
