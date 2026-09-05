@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LinearGradient</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            const canvas = document.getElementById("canvas");
+            const context = canvas.getContext("2d");
+
+            // Створення об'єкта градієнта та вказівка початкової та кінцевої точки осі градієнта
+            const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+
+            // Додавання кольору та зміщення позиції зупинки кольору
+            gradient.addColorStop(0, "black");
+            gradient.addColorStop(0.35, "blue");
+            gradient.addColorStop(0.8, "red");
+            gradient.addColorStop(1, "gold");
+
+            // Встановлення об'єкта градієнта як колір заливки контексту
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

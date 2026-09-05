@@ -1,0 +1,53 @@
+// інтерполяція/ є ситуації коли працює як конкатенація
+
+$theme-prefix: success;
+
+.btn-#{$theme-prefix}{
+    background: lightgreen;
+}
+
+$value: 3;
+$modificator: 4px;
+
+p{
+    border: $value * $modificator solid #ddd;
+    border: #{$value} + #{$modificator} solid #ccc;
+}
+
+
+.link{
+    &-cancel{
+        // .link-cancel 
+        border: 2px solid #000;
+        padding: 10px;
+        color: #f71d1d;
+    }
+}
+.link{
+    #{&}-cancel{
+        // .link .link-cancel
+        color: #1d1dfd;
+        font-size: 20px;
+        border-radius: 5px;
+        width: 300px;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+    }
+}
+
+
+@mixin icon($name, $icon-plus){
+    .icon-#{$name}{
+        background-color: aqua;
+        border-radius: 20px;
+        font-weight: bold;
+        &::before{
+            content: '#{$icon-plus}';
+        }
+    }
+}
+
+.link-cancel{
+    @include icon(plus, '+');
+}

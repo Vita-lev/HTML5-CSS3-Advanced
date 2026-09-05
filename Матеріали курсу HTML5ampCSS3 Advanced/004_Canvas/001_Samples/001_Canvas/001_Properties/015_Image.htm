@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>drawImage()</title>
+       <script>
+           window.addEventListener("load", init, false);
+           function init() {        
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            let logo = new Image();                        
+            logo.src = "canvas.jpg";
+            logo.onload = function () {
+                // 1 параметр картинка
+                // 2 параметр розміщення по осі Х
+                // 3 параметр розміщення по осі Y
+                // 4 параметр (необов'язковий) ширина картинки
+                // 5 параметр (необов'язковий) висота картинки
+                context.drawImage(logo, 125, 125, 250, 250);
+            };
+        }
+
+      
+         
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="500" width="500">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

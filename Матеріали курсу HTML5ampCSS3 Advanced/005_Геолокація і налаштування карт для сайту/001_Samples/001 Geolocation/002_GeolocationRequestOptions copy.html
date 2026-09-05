@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Geolocation API</title>
+  </head>
+
+  <body>
+    <a
+      href="https://www.google.com.ua/maps/place/%D0%A1%D1%8B%D1%80%D0%B5%D1%86%D0%BA%D0%B8%D0%B9+%D0%B4%D0%B5%D0%BD%D0%B4%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9+%D0%BF%D0%B0%D1%80%D0%BA/@50.4587512,30.4485174,13.32z/data=!4m6!3m5!1s0x40d4cda8452fb7cd:0x233de25084eb211c!8m2!3d50.4806267!4d30.4230047!16s%2Fg%2F11y3_ckz4?hl=ru&entry=ttu&g_ep=EgoyMDI2MDgzMS4wIKXMDSoASAFQAw%3D%3D"
+      target="_blank"
+      >Документація Geolocation API</a
+    >
+    <button id="get">Отримати поточне розташування</button>
+    <table border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <td>широта</td>
+        <td>
+          <p id="latitude"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>довгота</td>
+        <td>
+          <p id="longitude"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>точність (м)</td>
+        <td>
+          <p id="accuracy"></p>
+        </td>
+      </tr>
+    </table>
+    <p id="status">Параграф за наявності помилок</p>
+    <!-- Прихований лоадер -->
+    <img id="loader" src="loader.gif" style="visibility: hidden" />
+
+    <script type="text/javascript">
+      document.getElementById("get").onclick = function () {
+        function showLoadStatus() {
+          document.getElementById("loader").style.visibility = "visible";
+        }
+
+        function hideLoadStatus() {
+          document.getElementById("loader").style.visibility = "hidden";
+        }
+        showLoadStatus();
+        // Разове отримання даних про місцезнаходження
+
+        navigator.geolocation.getCurrentPosition(
+          // updateLocation - метод, який запуститься після отримання даних про місцезнаходження
+          updateLocation,
+          // handleError - метод запуститися у разі збою при отриманні розташування
+          handleError,
+          // options: необов'язковий об'єкт у методі getCurrentPosition
+          // {
+          //   enableHighAccuracy: true, - спробувати отримати найбільш точні дані - більш тривале завантаження координат
+          //   timeout: 2000, - дані повинні бути отримані протягом 2 секунд
+          //   maximumAge: 30000 - якщо дані були отримані протягом останніх 30 секунд, їх можна не запитувати заново
+          // }
+          {
+            enableHighAccuracy: true,
+            timeout: 2000,
+            maximumAge: 3000,
+          },
+        );
+
+        function updateLocation(position) {
+          let $ = function (selector) {
+            return document.getElementById(selector);
+          };
+
+          $("latitude").innerHTML = position.coords.latitude;
+          $("longitude").innerHTML = position.coords.longitude;
+          $("accuracy").innerHTML = position.coords.accuracy;
+
+          hideLoadStatus();
+        }
+
+        function updateStatus(message) {
+          document.getElementById("status").innerHTML = message;
+        }
+        // Переглядати дозволені та не дозволені домени які визначають ваше місце розташування
+        // Google Chrome
+        // chrome://settings/content/location
+        function handleError(error) {
+          switch (error.code) {
+            case GeolocationPositionError.PERMISSION_DENIED:
+              // значення: 1
+              // користувач заборонив трекінг своєї геопозиції
+              break;
+            case GeolocationPositionError.POSITION_UNAVAILABLE:
+              // значення: 2
+              // отримати місце не вдалося
+              break;
+            case GeolocationPositionError.TIMEOUT:
+              // значення: 3
+              // час отримання геолокації минув
+              break;
+          }
+          hideLoadStatus();
+        }
+      };
+    </script>
+  </body>
+</html>

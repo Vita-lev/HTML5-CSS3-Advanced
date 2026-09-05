@@ -1,0 +1,27 @@
+.btn {
+  border: 2px solid blue;
+  padding: 11px 20px;
+  border-radius: 11px;
+  margin-bottom: 20px;
+}
+.btn:hover {
+  background-color: blue;
+  color: #fff;
+}
+
+.alert {
+  border: 3px solid blue;
+  border-radius: 11px;
+  padding: 11px;
+  color: blue;
+}
+
+.content {
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.sidebar {
+  background-color: lightgreen;
+  padding: 10px;
+}/*# sourceMappingURL=example3.css.map */

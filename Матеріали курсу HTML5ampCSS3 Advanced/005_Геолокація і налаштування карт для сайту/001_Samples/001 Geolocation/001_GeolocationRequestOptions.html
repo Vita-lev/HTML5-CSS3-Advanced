@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Geolocation API</title>
+  </head>
+  <body>
+    <button id="get">Отримати поточне розташування</button>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+      <iframe
+        width="873"
+        height="491"
+        src="https://www.youtube.com/embed/Lgr2WMjvlM8?list=RDLgr2WMjvlM8"
+        title="Eli &amp; Fur - You&#39;re So High"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+      <tr>
+        <td>широта</td>
+        <td>
+          <p id="latitude"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>довгота</td>
+        <td>
+          <p id="longitude"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>точність (м)</td>
+        <td>
+          <p id="accuracy"></p>
+        </td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      document.getElementById("get").onclick = function () {
+        // Разове отримання даних про місцезнаходження
+        // updateLocation - метод, який запуститься після отримання даних про місцезнаходження
+        navigator.geolocation.getCurrentPosition(getLocation);
+
+        function getLocation(position) {
+          let $ = function (selector) {
+            return document.getElementById(selector);
+          };
+
+          $("latitude").innerHTML = position.coords.latitude;
+          $("longitude").innerHTML = position.coords.longitude;
+          $("accuracy").innerHTML = position.coords.accuracy;
+        }
+      };
+    </script>
+  </body>
+</html>

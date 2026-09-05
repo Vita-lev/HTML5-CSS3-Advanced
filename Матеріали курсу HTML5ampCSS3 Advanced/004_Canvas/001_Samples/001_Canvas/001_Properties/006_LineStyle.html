@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title> 
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            context.save();
+            context.translate(100, 100);
+            // Заберіть та поверніть методи beginPath,closePath,stroke
+            // beginPath,closePath визначають окрему фігуру
+            // Перша зелена фігура
+            // context.beginPath();
+                context.moveTo(125, 100);
+                context.lineTo(200, 200);
+                context.lineTo(100, 250);
+                context.lineTo(50, 150);
+                context.lineWidth = 25;
+                context.strokeStyle = "green";
+            // context.closePath();
+            // context.stroke();
+            // Друга червона фігура
+            // context.beginPath();
+                context.moveTo(175, 100);
+                context.lineTo(250, 200);
+                context.lineTo(350, 100);
+                context.lineWidth = 10;
+                context.strokeStyle = "red";
+                context.stroke();
+                // Зверніть порядок виклику методів!
+                // Змінюйте місцями та варіації наявності методів!
+            // context.closePath();
+            // context.fill();
+            context.restore();
+        }
+
+      
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>quadraticCurveTo()</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // Перша точка
+            context.moveTo(0, 300);
+            // Змінюйте значення точки і у кола щоб дивитися положення керуючої точки
+            //                                              X👇  Y👇
+            context.quadraticCurveTo( /*керуюча точка*/ 550, 550, /*друга точка*/ 600, 300);
+
+            context.lineWidth = 10;
+            context.strokeStyle = "orange";
+            context.stroke();
+
+            context.beginPath();
+            //          X👇  Y👇             
+            context.arc(550, 550, 10, 0, Math.PI * 2, false);
+            context.fill();
+            context.closePath();
+
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

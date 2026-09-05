@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>drawImage()</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            let item = new Image();
+            item.src = "lamp.jpg";
+            item.onload = function() {
+                //Метод createPattern - повторює вказаний елемент за вказаним напрямком
+                // Значення repeat-x, repeat-y, no-repeat, repeat
+                context.fillStyle = context.createPattern(item, 'repeat');
+                context.fillRect(0, 0, 350, 150);
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RadialGradient</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            // Створення радіального градієнта
+            // x1,y1   - координата першого кола
+            // radius1 - радіус початку поширення
+            // x2,y2   - координата другого кола
+            // radius2 - радіус кінця розповсюдження
+            let gradient = context.createRadialGradient(150, 150, 10, 150, 150, 200);
+            gradient.addColorStop(0, 'red');
+            gradient.addColorStop(0.5, 'lightgreen');
+            gradient.addColorStop(1, 'green');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 300, 300);
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

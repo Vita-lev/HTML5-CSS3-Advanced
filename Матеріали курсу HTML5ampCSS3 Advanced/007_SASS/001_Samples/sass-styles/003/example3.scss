@@ -1,0 +1,47 @@
+// зміні 
+// змінні працюють як і джаваскрипті (var), можна перезаписувати їх значення
+
+// замініть значення змінних!
+$var1: blue;
+$var2: 20px;
+
+$var3: 100px;
+$var3: 11px;
+
+$var4: 'some value';
+
+
+.btn{
+    border: 2px solid $var1;
+    padding: $var3 $var2;
+    border-radius: $var3;
+    margin-bottom: $var2;
+    &:hover{
+        background-color: $var1;
+        color: #fff;
+    }
+}
+
+.alert{
+    border: 3px solid $var1;
+    border-radius: $var3;
+    padding: $var3;
+    color: $var1;
+    // Не існуючі змінні можуть зупиняти компіляцію!
+    // Помилки в коді, так само зупиняють компіляцію! 
+    // background-color: $notExistVar;
+}
+
+// глобальна зміна
+$variable: lightgreen;
+.content {
+  // локальна зміна
+  $variable: lightgray;
+  background-color: $variable;
+  padding: 10px;
+}
+
+.sidebar {
+  background-color: $variable;
+  padding: 10px;
+}

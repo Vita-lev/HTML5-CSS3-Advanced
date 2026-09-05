@@ -1,0 +1,1 @@
+(()=>{var o={354:()=>{console.log("Hello"),console.log("CBS")}},e={};function r(l){var n=e[l];if(void 0!==n)return n.exports;var s=e[l]={exports:{}};return o[l](s,s.exports,r),s.exports}r(354),console.log("Code from index.js")})();

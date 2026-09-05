@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>arc()</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            context.beginPath();
+            context.fillStyle = "green";
+            //arc(x,y,radius,startAgle,endAngle,clockwise)
+            //Метод arc() приймає 6 аргументів:
+            //x, y - центр малювання дуги
+            //radius - радіус
+            //startAngle - початковий кут кола в радіанах
+            //endAngle - кінцевий кут кола в радіанах
+            //clockwise - напрямок промальовування. false - за годинниковою стрілкою
+            context.arc(100, 100, 50, 0, Math.PI, false);
+            context.closePath();
+            context.fill();
+
+            context.beginPath();
+            context.arc(200, 200, 50, 0, Math.PI, true);
+            context.closePath();
+            context.lineWidth = 10;
+            context.strokeStyle = "green";
+            context.stroke();
+
+            context.beginPath();
+            context.arc(300, 350, 100, 0, Math.PI * 2, false);
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            // змінювати значення п'ятого параметра 0.5+-
+            //                           👇 
+            context.arc(300, 350, 100, 0, 2.5, false);
+            context.fill();
+            context.closePath();
+            
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

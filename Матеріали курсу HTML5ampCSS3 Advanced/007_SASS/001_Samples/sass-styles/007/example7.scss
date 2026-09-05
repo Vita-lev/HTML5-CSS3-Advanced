@@ -1,0 +1,60 @@
+// Умови
+
+@mixin avatar-icon($size, $circle: false) {
+    width: $size;
+    height: $size;
+    margin-bottom: 20px;
+
+    @if $circle {
+        border-radius: 50%;
+    }
+}
+
+.square-avatar {
+    @include avatar-icon(100px, $circle: false);
+    background: #cdde3b;
+}
+
+.circle-avatar {
+    @include avatar-icon(100px, $circle: true);
+    background: #4285f0;
+}
+
+@mixin app-background($color) {
+    #{if(&, '&.app-background', '.app-background')} {
+        background-color: $color;
+        color: rgba(#f9f2f2, 0.85);
+    }
+}
+
+.section {
+    width: 300px;
+    height: 100px;
+}
+
+@include app-background(#013364);
+
+body {
+    @include app-background(#d877a8);
+}
+
+// Змінити значення змінної $dark-theme
+$dark-theme: false;
+// $dark-theme: true;
+$primary-color: #070707;
+$accent-color: #66f0f3;
+
+@if $dark-theme {
+    $primary-color: lighten($primary-color, 80%);
+    $accent-color: darken($accent-color, 70%);
+}
+
+.button {
+    margin-top: 30px;
+    background-color: $primary-color;
+    border: 1px solid $accent-color;
+    color: $accent-color;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 35px;
+}

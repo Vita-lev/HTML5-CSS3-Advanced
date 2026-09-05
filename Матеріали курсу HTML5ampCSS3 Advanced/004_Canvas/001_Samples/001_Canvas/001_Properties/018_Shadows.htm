@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadows</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById('canvas');           
+            let context = canvas.getContext('2d');
+            context.font = "bold 40px Segoe UI";
+            context.fillStyle = "Orange";
+            context.textBaseline = "alphabetic";
+            // Колір тіні
+            context.shadowColor = "rgba(255, 0, 0, 0.5)";
+            context.shadowOffsetX = 25;
+            context.shadowOffsetY = 25;
+            // Ступінь розмиття
+            context.shadowBlur = 5;
+            let text = "My first CANVAS text";
+            let w = context.measureText(text);
+            context.fillText(text, (context.canvas.width - w.width) / 2, 100);
+        }     
+
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

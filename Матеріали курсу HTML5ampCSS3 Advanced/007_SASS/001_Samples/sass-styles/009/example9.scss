@@ -1,0 +1,18 @@
+// @import в майбутньому працювати не буде!
+// https://sass-lang.com/documentation/at-rules/import/
+
+
+// Значення змінних можна переприсвіїти через імпорт!
+// І з великими проєктами це заважає!
+$main-color: lightgreen;
+
+@import 'header';
+@import 'section.scss';
+// Актуальне значення $main-color визначено в footer.scss
+@import 'footer';
+
+.wrapper{
+    border: 2px solid #000;
+    padding: 10px;
+    background-color: $main-color;
+}

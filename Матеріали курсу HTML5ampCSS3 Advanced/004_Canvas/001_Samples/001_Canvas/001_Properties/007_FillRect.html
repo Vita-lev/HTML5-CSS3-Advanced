@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+            // Промальовування прямокутника (x, y, width, height) x, y - Початок координат
+            context.fillRect(300, 100, 200, 300);
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>text functions</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            // Налаштування шрифту
+            context.font = "bold 24px Segoe UI";
+            // Тип відображення шрифту:
+            // top, bottom, middle,hanging, alphabetic
+            context.textBaseline = "alphabetic";
+
+            let text = "My first";
+            // Заповнюємо канвас текстом
+            // текст, х,у(координати)
+            context.fillText(text, 40, 98);
+            // context.beginPath();
+            context.font = "bold 30px Arial";
+            let text2 = "CANVAS text";
+            // Отримання розміру тексту в пікселях
+            // Наприклад: ширина "CANVAS text" наприклад 100px
+            // І за формулою нижче ми розрахували 100px від лівого краю
+            // 100px ширина самого тексту та 100px залишилося з правого боку (загальна ширина канвасу 300px)
+            let w2 = context.measureText(text);
+            context.fillText(text2, (context.canvas.width - w2.width) / 2, 198);
+            context.strokeStyle = "red";
+            context.moveTo(0, 200);
+            context.lineTo(300, 200);
+            context.stroke();
+        
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Пример Canvas</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        canvas {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="300"></canvas>
+    <script>
+        let canvas = document.getElementById('myCanvas');
+        let context = canvas.getContext('2d');
+
+        let Rectangle = {
+            x: 250,
+            y: 70,
+            width: 100,
+            height: 50,
+            borderWidth: 5
+        };
+
+        window.requestAnimFrame = (function (callback) {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 300);
+            };
+        })();
+        // функція яка малює прямокутник
+        // перший параметр - об'єкт, що визначає розміри прямокутника
+        // другий параметр - контекст канвасу на якому буде зроблено малювання
+        function drawRectangle(Rectangle, context) {
+            context.beginPath();
+            context.rect(Rectangle.x, Rectangle.y, Rectangle.width, Rectangle.height);
+            context.fillStyle = 'red';
+            context.fill();
+            context.lineWidth = Rectangle.borderWidth;
+            context.strokeStyle = 'black';
+            context.stroke();
+        }
+        function animate(Rectangle, canvas, context, startTime) {
+            // визначаємо різницю між поточним часом та часом початку анімації
+            let time = startTime += 10;
+            console.log(time);
+            // Задаємо амплітуду анімації (за шириною)
+            let amplitude = 250;
+
+            // змінюємо властивість x об'єкта прямокутника до тих пір, поки він не досягне амлітуди
+            let period = 2000;
+            let centerX = canvas.width / 2 - Rectangle.width / 2;
+            let nextX = amplitude * Math.sin(time * 2 * Math.PI / period) + centerX;
+            Rectangle.x = nextX;
+
+            // Очищаємо канвас
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            // малюємо прямокутник з урахуванням зміни координати x
+            drawRectangle(Rectangle, context);
+
+            // запитуємо новий кадр
+            requestAnimFrame(function () {
+                animate(Rectangle, canvas, context, startTime);
+            });
+        }
+       
+
+        drawRectangle(Rectangle, context);
+
+        let startTime = (new Date()).getTime();
+        animate(Rectangle, canvas, context, startTime);
+
+    </script>
+</body>
+</html>

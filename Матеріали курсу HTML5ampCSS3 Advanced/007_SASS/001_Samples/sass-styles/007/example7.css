@@ -1,0 +1,39 @@
+.square-avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  background: #cdde3b;
+}
+
+.circle-avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: #4285f0;
+}
+
+.section {
+  width: 300px;
+  height: 100px;
+}
+
+.app-background {
+  background-color: #013364;
+  color: rgba(249, 242, 242, 0.85);
+}
+
+body.app-background {
+  background-color: #d877a8;
+  color: rgba(249, 242, 242, 0.85);
+}
+
+.button {
+  margin-top: 30px;
+  background-color: #070707;
+  border: 1px solid #66f0f3;
+  color: #66f0f3;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 35px;
+}/*# sourceMappingURL=example7.css.map */

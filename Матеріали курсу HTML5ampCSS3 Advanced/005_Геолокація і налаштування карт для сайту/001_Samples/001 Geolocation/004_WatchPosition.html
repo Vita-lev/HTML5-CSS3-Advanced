@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geolocation API</title>
+</head>
+
+<body>
+    <button id="start">
+        Почати відстеження позиції
+    </button>
+    <button id="stop">
+        Завершити відстеження позиції
+    </button>
+    <table id="infoTable" border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <td>
+                широта
+            </td>
+            <td>
+                <p id="latitude">
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                довгота
+            </td>
+            <td>
+                <p id="longitude">
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                точність (м)
+            </td>
+            <td>
+                <p id="accuracy">
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                висота
+            </td>
+            <td>
+                <p id="altitude">
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                точність (висота)
+            </td>
+            <td>
+                <p id="altitudeAccuracy">
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                курс
+            </td>
+            <td>
+                <p id="heading">
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                швидкість
+            </td>
+            <td>
+                <p id="speed">
+                </p>
+            </td>
+        </tr>
+    </table>
+    <p id="status">
+        Параграф за наявності помилок
+    </p>
+    <!-- Прихований лоадер -->
+    <img id="loader" src="loader.gif" style="visibility:hidden">
+
+    <script type="text/javascript">
+
+        window.addEventListener("load", function () {
+            document.getElementById("start").onclick = startWatch;
+            document.getElementById("stop").onclick = stopWatch;
+        });
+
+        let watchId;
+
+        function startWatch() {
+            //Функція watchPosition працює аналогічно getCurrentPosition, але повертає
+            // об'єкт-таймер, через який буде повторно викликатись операція пошуку розташування
+            // maximumAge: 1000 - кожну секунду нам повертатиметься поточне положення
+            watchId = navigator.geolocation.watchPosition(updateLocation, handleError);
+        }
+
+        function stopWatch() {
+            //clearWatch - видаляє таймер для оновлення пошуку розташування
+            navigator.geolocation.clearWatch(watchId);
+        }
+
+
+        function showLoadStatus() {
+            document.getElementById("loader")
+                .style.visibility = "visible";
+        }
+
+        function hideLoadStatus() {
+            document.getElementById("loader")
+                .style.visibility = "hidden";
+        }
+        // Разове отримання даних про місцезнаходження
+        let i = 0;
+        function updateLocation(position) {
+            let $ = function (selector) {
+                return document.getElementById(selector);
+            }
+            // accuracy — точність широти та довготи в метрах (наприклад, 40 метрів);
+            $("latitude").innerHTML = position.coords.latitude;
+            $("longitude").innerHTML = position.coords.longitude;
+            $("accuracy").innerHTML = position.coords.accuracy;
+            // altitude — відповідає за висоту в метрах над еліпсоїдом;
+            // Повертає висоту положення у метрах щодо рівня моря;
+            $("altitude").innerHTML = position.coords.altitude;
+            // altitudeAccuracy — рівень точності висоти над еліпсоїдом у метрах;
+            $("altitudeAccuracy").innerHTML = position.coords.altitudeAccuracy;
+            // heading — напрямок руху
+            // Кут, який відраховується за годинниковою стрілкою щодо справжньої півночі і може набувати значення від 0° до 360°;
+            $("heading").innerHTML = position.coords.heading;
+            // speed — швидкість руху за метри на секунду
+            $("speed").innerHTML = position.coords.speed;
+            // ВАЖЛИВО! 👇
+            // latitude, longitude, accuracy - Завжди повертаються
+            // altitude, altitudeAccuracy, heading, speed - Повертаються якщо доступні
+            i++;
+            console.log(i, position.coords)
+            hideLoadStatus();
+        }
+
+        function updateStatus(message) {
+            document.getElementById("status")
+                .innerHTML = message;
+        }
+        // Переглядати дозволені та не дозволені домени які визначають ваше місце розташування
+        // Google Chrome
+        // chrome://settings/content/location
+        function handleError(error) {
+            switch (error.code) {
+                case GeolocationPositionError.PERMISSION_DENIED:
+                    // значення: 1 
+                    // користувач заборонив трекінг своєї геопозиції
+                    updateStatus('користувач заборонив трекінг своєї геопозиції')
+                    break;
+                case GeolocationPositionError.POSITION_UNAVAILABLE:
+                    // значення: 2 
+                    // отримати місце не вдалося
+                    updateStatus('отримати місце не вдалося')
+                    break;
+                case GeolocationPositionError.TIMEOUT:
+                    // значення: 3
+                    // час отримання геолокації минув
+                    updateStatus('час отримання геолокації минув')
+                    break;
+            }
+            hideLoadStatus();
+        }
+
+    </script>
+</body>
+
+</html>

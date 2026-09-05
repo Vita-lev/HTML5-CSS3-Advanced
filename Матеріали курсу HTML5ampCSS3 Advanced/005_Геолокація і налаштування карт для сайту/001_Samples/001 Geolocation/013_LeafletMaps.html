@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geolocation API</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <h3>Карта за допомогою Leaflet API</h3>
+    <div id="map2" style="height:300px;width:500px;"></div>
+
+    <script>
+
+        //  //Карта за допомогою Leaflet API з поточним місцем розташування
+        function success(position) {
+            let map2, marker,
+                latitude = position.coords.latitude,
+                longitude = position.coords.longitude;
+
+            // Отримуємо картку з використанням leaflet
+            map2 = L.map('map2').setView([latitude, longitude], 13);
+
+            L.tileLayer(
+                'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18
+                }).addTo(map2);
+
+            // Маркер із використанням leaflet
+            marker = L.marker([latitude, longitude]).addTo(map2);
+        }
+
+        function error() {
+            alert('Отримати поточну позицію не вдалося. Будь ласка, дозвольте доступ до геолокації');
+        }
+        navigator.geolocation.getCurrentPosition(success, error);
+    </script>
+</body>
+
+</html>

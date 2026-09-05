@@ -1,0 +1,16 @@
+// @import в майбутньому працювати не буде!
+// https://sass-lang.com/documentation/at-rules/import/
+
+
+// Змінні лишаються доступні в межах локального файлу scss, sass
+$main-color: lightgreen;
+
+@use 'header';
+@use 'section.scss';
+@use 'footer';
+
+.wrapper{
+    border: 2px solid #000;
+    padding: 10px;
+    background-color: $main-color;
+}

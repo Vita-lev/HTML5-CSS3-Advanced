@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Opacity</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext("2d")
+            context.fillStyle = 'red';
+            // Задаємо альфа-канал для елемента. Значення від 0 до 1
+            // Задає прозорість елементу
+            // Схоже на css властивість opacity
+            context.fillRect(50, 50, 150, 150);
+            // Змінюйте значення 0.1
+            context.globalAlpha = 0.55;
+            context.fillStyle = 'green';
+            context.fillRect(25, 25, 150, 150);          
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

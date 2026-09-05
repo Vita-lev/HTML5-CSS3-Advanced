@@ -1,0 +1,15 @@
+.card {
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  width: 400px;
+}
+.card h4 {
+  text-transform: uppercase;
+}
+.card:hover {
+  background: #ddd;
+}
+.card:hover p {
+  text-decoration: underline;
+}/*# sourceMappingURL=example11.css.map */

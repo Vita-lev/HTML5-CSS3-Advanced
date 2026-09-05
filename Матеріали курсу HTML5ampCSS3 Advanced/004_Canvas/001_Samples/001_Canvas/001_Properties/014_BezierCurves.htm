@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>bezierCurveTo()</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            context.beginPath();
+            // Перша точка
+            context.moveTo(100, 130);
+            context.bezierCurveTo( /*керуюча точка 1*/ 150, 190, /*керуюча точка 2*/ 250, 0, /*друга точка*/ 350, 140);
+            context.lineTo(300, 320);
+            context.bezierCurveTo( /*керуюча точка 1*/ 150, 30, /*керуюча точка 2*/ 259, 430, /*друга точка*/ 100, 290);
+            context.closePath();
+            context.stroke();
+            // context.fill();
+
+            context.beginPath();
+            // Перша точка X👇  Y👇             
+                context.arc(150, 190, 10, 0, Math.PI * 2, false);
+            context.fillStyle = 'green';
+            context.closePath();
+            context.fill();
+            context.beginPath();
+            // Друга точка X👇  Y👇 
+                context.arc(250, 0, 10, 0, Math.PI * 2, false);
+            context.fillStyle = 'blue';
+            context.closePath();
+            context.fill();
+            context.beginPath();
+            // Третя точка X👇  Y👇 
+                context.arc(150, 30, 10, 0, Math.PI * 2, false);
+            context.fillStyle = 'gold';
+            context.closePath();
+            context.fill();
+            context.beginPath();
+            // Четверта точка X👇  Y👇 
+                  context.arc(259, 430, 10, 0, Math.PI * 2, false);
+            context.fillStyle = 'red';
+            context.closePath();
+
+            context.fill();
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

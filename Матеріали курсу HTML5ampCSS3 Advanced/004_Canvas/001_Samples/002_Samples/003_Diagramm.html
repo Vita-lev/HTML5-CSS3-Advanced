@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Round diagramm</title>
+    <script>
+        window.addEventListener("load", init, false)
+
+        function init() {
+            // Ініціалізація набору даних
+            let data = [100, 68, 20, 30, 100, 15];
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+            // Малювання фону
+            context.fillStyle = "white";
+            context.fillRect(0, 0, 500, 500);
+            let colors = ["orange", "green", "blue", "yellow", "teal", "pink"];
+            // Сума всіх даних:
+            let total = 0;
+            for (let i = 0; i < data.length; i++) {
+                total += data[i];
+            }
+            let prevAngle = 0;
+            for (let i = 0; i < data.length; i++) {
+                // %, представлений сегментом
+                let fraction = data[i] / total;
+                // обчислюємо початковий кут
+                let angle = prevAngle + fraction * Math.PI * 2;
+                // малюємо сегмент
+                context.fillStyle = colors[i];
+
+                // створюємо контур
+                context.beginPath();
+                context.moveTo(250, 250);
+                context.arc(250, 250, 100, prevAngle, angle, false);
+                context.lineTo(250, 250);
+                context.fill();
+                // обводимо його
+                context.strokeStyle = "black";
+                context.stroke();
+                // оновлюємо для наступної ітерації циклу
+                prevAngle = angle;
+            }
+            context.fillStyle = "black";
+            context.font = "24pt sans-serif";
+            let text = "Частота посещения сайта";
+            let metrics = context.measureText(text);
+            context.fillText(text, 250 - metrics.width / 2, 400);
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+</body>
+
+</html>

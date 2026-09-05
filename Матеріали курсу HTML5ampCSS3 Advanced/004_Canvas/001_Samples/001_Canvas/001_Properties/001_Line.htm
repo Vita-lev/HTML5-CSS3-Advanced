@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+    <script>
+        window.addEventListener("load", init, false);
+      
+        function init() {
+         
+            // Отримання елемента та його графічного контексту
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            // Перехід у точку з координатами (100,100)
+            // Початкова перша точка
+            // Верхній лівий кут
+            context.moveTo(100, 100);
+            // Верхній правий вугол
+            context.lineTo(200, 100);
+            // Нижній правий кут
+            context.lineTo(200, 200);
+            // Нижній лівий кут
+            context.lineTo(100, 200);
+            // Креслення лінії на полотні
+            // ВАЖЛИВО! щоб виклик stroke був після методів вищим!
+            context.stroke();
+        }
+
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+    <h3>Перевірка роботи Canvas у сучасних браузерах</h3>
+    <a href="https://caniuse.com/#search=canvas">Чи можу я користуватися Canvas?</a>
+</body>
+</html>

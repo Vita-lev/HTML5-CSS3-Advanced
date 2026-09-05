@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>rotate transformation</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let $ = function(id) {
+                return document.getElementById(id);
+            }
+            let p = document.querySelector('p');
+            let context = $("canvas").getContext("2d");
+            let img = new Image();
+            img.src = "canvas.jpg";
+            img.onload = draw;
+            $("btn").onclick = draw;
+
+            function draw() {
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+                let angle = $("angle").value;
+                angle = angle * Math.PI / 180;
+                context.save();
+                // Трансформація обертання
+                // Обертання відбувається всього полотна!
+                // angle кут повороту за годинниковою стрілкою в радіанах
+                context.rotate(angle);
+                p.innerHTML = angle;
+                context.drawImage(img, 200, 200, 150, 150);
+                context.restore();
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+        
+        div {
+            border: 1px solid gray;
+            padding: 8px;
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600">
+    </canvas>
+    <div>
+        Кут повороту
+        <input type="text" id="angle" value="15">
+        <input type="button" id="btn" value="rotate" >
+        <p></p>
+        <p>Поставте значення градусів від 15 – 45 та 320 – 360</p>
+    </div>
+</body>
+
+</html>

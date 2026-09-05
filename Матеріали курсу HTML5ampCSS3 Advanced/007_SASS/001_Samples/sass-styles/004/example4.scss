@@ -1,0 +1,64 @@
+// Міксіни/Домішки 
+// .btn-success
+@mixin bg-color1(){
+    background: #16aa19f7;
+}
+// .btn-info
+@mixin bg-color2($color){
+    // параметри
+    background-color: $color;
+}
+// .btn-warning
+@mixin bg-color3($color, $fz){
+    // параметри
+    background-color: $color;
+    font-size: $fz;
+}
+// .btn-error
+@mixin bg-color4($color: #ddd, $fz: 20px){
+    //значення за замовчуваням
+    background-color: $color;
+    font-size: $fz;
+}
+// .btn-danger
+@mixin bg-color5($color, $fz){
+    background-color: $color;
+    font-size: $fz;
+}
+// .btn-important
+@mixin bg-color6($f, $w: 100px, $c: green){
+    width: $w;
+    background-color: $c;
+    font-size: $f;
+}
+.btn{
+    &-success{
+        @include bg-color1();
+    }
+    &-info{
+        @include bg-color2(#1919f7);
+    }
+    &-warning{
+        @include bg-color3(#fcd917, 16px);
+    }
+    &-error{
+        // @include bg-color4(gold, 16px);
+        // @include bg-color4(gold);
+        @include bg-color4();
+    }
+    &-danger{
+        // символи '-' і '_' однаково сприймаються, 
+        // вони однаково компілюються в дефіз!
+        // @include bg-color5(red, 16px);
+        @include bg_color5(#de0a0a, 16px);
+    }
+    &-important{
+        //іменовані аргументи
+        @include bg-color6(
+            $f: 15px,
+            $c: #ff4d00,
+            $w: 150px
+        )
+    }
+}
+

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            // Зберігаємо копію поточного стану контексту
+            context.save();
+
+            // Переносимо графічний контекст вправо та вниз
+            context.translate(100, 100);
+
+            // Малюємо лінію
+            context.moveTo(0, 0);
+            context.lineTo(100, 100);
+            context.lineTo(100, 0);
+            context.lineTo(0, 0);
+            context.stroke();
+
+            // Відновлюємо колишній стан контексту.
+            context.restore();
+        }
+
+
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

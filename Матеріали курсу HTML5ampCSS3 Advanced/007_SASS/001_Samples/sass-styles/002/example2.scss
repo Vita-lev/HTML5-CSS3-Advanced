@@ -1,0 +1,72 @@
+
+// Результат компіляції дивитись в css файлі!
+.container{
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 20px;
+    .content{
+        // .container .content{}
+        background-color: #ddd;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    > .odd{
+        // .container > .odd{}
+        background-color: #ccc;
+    }
+    + h3 {
+        // .container + h3{}
+        font-style: italic;
+    }
+    ~ p {
+        // .container ~ p{}
+        border-bottom: 3px solid #a2a2a2;
+    }
+
+    .odd {
+        // .container .odd{}
+        // Запис нижче зкомпілюється в 
+        // margin-right: 20px; і т.д
+        margin: {
+            right: 20px;
+            left: 0;
+            top: 0;
+            bottom: 10px;
+        }
+        &.content{
+            // .container .odd.content{}
+            color: #111;
+        }
+        &-item{
+            // .container .odd-item{}
+            font-weight: bold;
+            // так буде помилка в коді,
+            // коли йде ім'я тегу і одразу &
+            p{
+                // p--prefix = error
+                &--prefix{color: red;}
+            }
+        }
+        &:hover{
+            // .container .odd:hover{}
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    
+    .even & {
+        // .even .container {}
+        background-color: gold;
+    }
+
+    .even{
+        :not(&){
+            // :not(.container .even) {}
+            position: relative;
+            left: -1px;
+            // background-color: green;
+        }
+    }
+
+}
+

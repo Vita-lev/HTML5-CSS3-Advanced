@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            // Заливання області
+            context.save();
+            context.translate(100, 100);
+            // fillStyle змінює колір заливки фігури
+            context.fillStyle = "blue";
+            // Зафарбований прямокутник
+            context.fillRect(0, 0, 150, 50);
+            context.fillStyle = "green";
+            context.fillRect(200, 0, 150, 50);
+            
+            context.strokeStyle = "yellow";
+            context.lineWidth = 10;
+            context.strokeRect(0, 80, 150, 50);
+            context.strokeStyle = "red";
+            context.lineWidth = 5;
+            // Змінюємо колір рамки та заливки
+            context.strokeRect(200, 120, 150, 50);
+            context.strokeRect(0, 180, 150, 50);
+            // Спочатку визначаємо властивості елемента,
+            // а потім виконуємо малювання!
+            // Властивості нижче не відображаються на екрані
+            // через порушення порядку написання коду
+            context.strokeStyle = "pink";
+            context.lineWidth = 25;
+            context.restore();
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не підтримує елемент <i>Canvas</i>
+    </canvas>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+// шаблони можна в різних селекторах викоростовувати
+// стилі підуть в базові окремо від звичайних (дивитись в css файл)
+// прописаним правилом нижче можна перебити стиль з шаблону
+// розміщеня шаблону важливий! (вгорі коду чи під стилями)
+// Exend код не дублюється mixin код дублюється
+
+%btn {
+    box-sizing: border-box;
+    padding: 16px 0;
+    width: 200px;
+    border: 2px solid transparent;
+    font-weight: bold;
+
+    &:hover {
+        border: 2px rgba(#000, .5) solid;
+    }
+}
+
+.action-btn {
+    @extend %btn;
+    background: #4285f0;
+}
+
+.reset-btn {
+    @extend %btn;
+    background: #cdde3b;
+}
+
+// Порівняти компіляцію шаблонів і міксінів!
+
+// @mixin btn() {
+//     box-sizing: border-box;
+//     padding: 16px 0;
+//     width: 200px;
+//     border: 2px solid transparent;
+//     font-weight: bold;
+
+//     &:hover {
+//         border: 2px rgba(#000, .5) solid;
+//     }
+// }
+// .action-btn {
+//     @include btn();
+//     background: #4285f0;
+// }
+
+// .reset-btn {
+//     @include btn();
+//     background: #cdde3b;
+// }
+
+// Цього класу не має в розмітці!
+.patern-class{
+    box-sizing: border-box;
+    padding: 16px 0;
+    width: 200px;
+    border: 2px solid transparent;
+    font-weight: bold;
+    background: #42f042;
+    &:hover {
+        border: 2px rgba(#000, .5) solid;
+    }
+}
+
+.submit-btn{
+    // Можна успадковувати стилі від іншого класу!
+    // Навіть якщо його не має в html коді
+    @extend .patern-class;
+}

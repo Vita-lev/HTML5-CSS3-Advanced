@@ -1,0 +1,30 @@
+.reset-btn, .action-btn {
+  box-sizing: border-box;
+  padding: 16px 0;
+  width: 200px;
+  border: 2px solid transparent;
+  font-weight: bold;
+}
+.reset-btn:hover, .action-btn:hover {
+  border: 2px rgba(0, 0, 0, 0.5) solid;
+}
+
+.action-btn {
+  background: #4285f0;
+}
+
+.reset-btn {
+  background: #cdde3b;
+}
+
+.patern-class, .submit-btn {
+  box-sizing: border-box;
+  padding: 16px 0;
+  width: 200px;
+  border: 2px solid transparent;
+  font-weight: bold;
+  background: #42f042;
+}
+.patern-class:hover, .submit-btn:hover {
+  border: 2px rgba(0, 0, 0, 0.5) solid;
+}/*# sourceMappingURL=example6.css.map */

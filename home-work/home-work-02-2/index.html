@@ -3,128 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home work 02-2</title>
+    <title>Завдання 02</title>
     <style>
       * {
         box-sizing: border-box;
       }
 
       body {
-        display: grid;
-        min-height: 100vh;
         margin: 0;
-        place-items: center;
-        background: linear-gradient(135deg, #dff6ff, #f8fcff);
         font-family: Arial, sans-serif;
+        background: #eef8fc;
+        color: #174a63;
       }
 
-      .homework {
-        width: min(90vw, 560px);
-        padding: 32px 20px;
-        text-align: center;
+      .page {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 0 20px;
       }
 
       h1 {
-        margin: 0 0 8px;
-        color: #174a63;
-        font-size: clamp(24px, 5vw, 36px);
+        margin: 0 0 16px;
+        text-align: center;
       }
 
-      p {
-        margin: 0 0 28px;
-        color: #477286;
+      ol {
+        margin: 0 0 32px;
+        padding-left: 24px;
+        line-height: 1.6;
       }
 
+      /* Поле 400x400. Круг 80x80. Щоб стати в протилежний кут: 400 - 80 = 320 */
       .board {
         position: relative;
-        width: min(78vw, 400px);
-        aspect-ratio: 1;
+        width: 400px;
+        height: 400px;
         margin: 0 auto;
-        border: 3px dashed #8dc9df;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.65);
+        border: 3px solid #00bbff;
+        background: #fff;
       }
 
-      .dot {
+      .circle {
         position: absolute;
-        width: clamp(50px, 15vw, 100px);
-        aspect-ratio: 1;
+        width: 80px;
+        height: 80px;
         border: 4px solid #292626;
         border-radius: 50%;
-        box-shadow: 0 6px 12px rgba(23, 74, 99, 0.2);
-        animation: move-around-square 16s linear infinite;
+        animation-duration: 4s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
       }
 
-      .dot--blue {
+      .circle-blue {
+        top: 0;
+        left: 0;
         background: #00aeff;
-        animation-delay: 0s;
+        animation-name: move-right;
       }
 
-      .dot--yellow {
+      .circle-yellow {
+        top: 0;
+        left: 320px;
         background: #eaac04;
-        animation-delay: -4s;
+        animation-name: move-down;
       }
 
-      .dot--coral {
+      .circle-red {
+        top: 320px;
+        left: 320px;
         background: #f72904;
-        animation-delay: -8s;
+        animation-name: move-left;
       }
 
-      .dot--green {
+      .circle-green {
+        top: 320px;
+        left: 0;
         background: #05f862;
-        animation-delay: -12s;
+        animation-name: move-up;
       }
 
-      @keyframes move-around-square {
-        0%,
-        12.5% {
-          top: 0;
+      /* 0–50% = 2 секунди рух, 50–100% = 2 секунди пауза */
+      @keyframes move-right {
+        0% {
           left: 0;
-        }
-
-        25%,
-        37.5% {
-          top: 0;
-          left: calc(100% - clamp(42px, 12vw, 64px));
         }
 
         50%,
-        62.5% {
-          top: calc(100% - clamp(42px, 12vw, 64px));
-          left: calc(100% - clamp(42px, 12vw, 64px));
+        100% {
+          left: 320px;
+        }
+      }
+
+      @keyframes move-down {
+        0% {
+          top: 0;
         }
 
-        75%,
-        87.5% {
-          top: calc(100% - clamp(42px, 12vw, 64px));
+        50%,
+        100% {
+          top: 320px;
+        }
+      }
+
+      @keyframes move-left {
+        0% {
+          left: 320px;
+        }
+
+        50%,
+        100% {
           left: 0;
         }
+      }
 
+      @keyframes move-up {
+        0% {
+          top: 320px;
+        }
+
+        50%,
         100% {
           top: 0;
-          left: 0;
         }
       }
     </style>
   </head>
   <body>
-    <main class="homework">
+    <main class="page">
       <h1>Завдання 02</h1>
-      <p>
-        Створіть точки з плавною анімацією, має бути чотири круги що розміщені
-        квадратом і рухатись наступним чином: - лівий верхній пересувається суто
-        праворуч - верхній правий пересувається в низ - нижній правий
-        пересувається в ліворуч - нижній лівий пересувається в гору всі елементи
-        після перестановки не рухаються 2 секунди (за бажанням можна змінювати
-        колір фону кожного з елементів)
-      </p>
 
-      <section class="board" aria-label="Анімація руху чотирьох точок">
-        <div class="dot dot--blue"></div>
-        <div class="dot dot--yellow"></div>
-        <div class="dot dot--coral"></div>
-        <div class="dot dot--green"></div>
-      </section>
+      <ol>
+        <li>Лівий верхній круг їде праворуч.</li>
+        <li>Правий верхній круг їде вниз.</li>
+        <li>Правий нижній круг їде ліворуч.</li>
+        <li>Лівий нижній круг їде вгору.</li>
+        <li>Після руху всі круги стоять 2 секунди.</li>
+      </ol>
+
+      <div class="board">
+        <div class="circle circle-blue"></div>
+        <div class="circle circle-yellow"></div>
+        <div class="circle circle-red"></div>
+        <div class="circle circle-green"></div>
+      </div>
     </main>
   </body>
 </html>

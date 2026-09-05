@@ -1,0 +1,33 @@
+.btn-success {
+  background: lightgreen;
+}
+
+p {
+  border: 12px solid #ddd;
+  border: 34px solid #ccc;
+}
+
+.link-cancel {
+  border: 2px solid #000;
+  padding: 10px;
+  color: #f71d1d;
+}
+
+.link .link-cancel {
+  color: #1d1dfd;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 300px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.link-cancel .icon-plus {
+  background-color: aqua;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.link-cancel .icon-plus::before {
+  content: "+";
+}/*# sourceMappingURL=example5.css.map */

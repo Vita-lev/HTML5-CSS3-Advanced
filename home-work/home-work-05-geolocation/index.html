@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сонячна Подорож</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f3f8fb;
+        color: #1d3a4a;
+      }
+
+      header {
+        background: #0b7cad;
+        color: #fff;
+        text-align: center;
+        padding: 24px 16px 0;
+      }
+
+      header h1 {
+        margin: 0 0 8px;
+      }
+
+      header p {
+        margin: 0 0 16px;
+      }
+
+      nav {
+        background: #08648c;
+        padding: 12px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      section {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+
+      section h2 {
+        text-align: center;
+      }
+
+      .hotels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      article {
+        background: #fff;
+        padding: 16px;
+        border: 2px solid #c5dbe6;
+      }
+
+      article img {
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      article h3 {
+        margin: 12px 0 8px;
+      }
+
+      article p {
+        margin: 0 0 12px;
+        line-height: 1.5;
+      }
+
+      .price {
+        margin: 0 0 12px;
+        font-weight: bold;
+        color: #0b7cad;
+      }
+
+      button {
+        background: #0b7cad;
+        color: #fff;
+        border: 0;
+        padding: 10px 16px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #08648c;
+      }
+
+      /* Карта схована, поки не натиснуть кнопку */
+      iframe {
+        display: none;
+        width: 100%;
+        height: 260px;
+        margin-top: 12px;
+        border: 0;
+      }
+
+      footer {
+        background: #1d3a4a;
+        color: #fff;
+        text-align: center;
+        padding: 20px 16px;
+      }
+
+      footer p {
+        margin: 4px 0;
+      }
+
+      @media (max-width: 700px) {
+        .hotels {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Сонячна Подорож</h1>
+      <p>Туристична фірма. Готельні комплекси на Дніпрі в Києві</p>
+      <nav>
+        <a href="#riviera">Рів'єра</a>
+        <a href="#mayachok">Mayachok</a>
+        <a href="#sungrilla">Sungrilla</a>
+        <a href="#galera">Галера</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Комплекси на Дніпрі</h2>
+      <p style="text-align: center">
+        Ціна — стандартний шезлонг на 1 людину за день. Сезон 2026, будень.
+      </p>
+
+      <div class="hotels">
+        <article id="riviera">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800"
+            alt="Пляжний комплекс Дніпровська Рів'єра"
+          />
+          <h3>Дніпровська Рів'єра</h3>
+          <p>
+            Пляж і басейн на Жуковому острові. Адреса: вул. Лютнева, 58К.
+          </p>
+          <p class="price">500 грн / людина / день</p>
+          <p>Шезлонг на піску. Вихідні: 600 грн.</p>
+          <button onclick="showMap('map-riviera', 50.3658, 30.5575)">
+            Подивитися на карті
+          </button>
+          <iframe id="map-riviera" title="Карта Дніпровської Рів'єри"></iframe>
+        </article>
+
+        <article id="mayachok">
+          <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+            alt="Mayachok Beach Club на Жуковому острові"
+          />
+          <h3>Mayachok Beach Club</h3>
+          <p>
+            Басейн і шезлонги на Жуковому острові. Адреса: вул. Лютнева, 58А.
+          </p>
+          <p class="price">800 грн / людина / день</p>
+          <p>Стандартний шезлонг. Вихідні: 1000 грн.</p>
+          <button onclick="showMap('map-mayachok', 50.3665, 30.556)">
+            Подивитися на карті
+          </button>
+          <iframe id="map-mayachok" title="Карта Mayachok Beach Club"></iframe>
+        </article>
+
+        <article id="sungrilla">
+          <img
+            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800"
+            alt="Sungrilla secret beach на Подолі"
+          />
+          <h3>Sungrilla secret beach</h3>
+          <p>
+            Тераса з видом на Дніпро, на Подолі. Адреса: вул.
+            Набережно-Хрещатицька, 10.
+          </p>
+          <p class="price">800 грн / людина / день</p>
+          <p>Шезлонг на одну людину. Вихідні: 1000 грн.</p>
+          <button onclick="showMap('map-sungrilla', 50.4665, 30.5255)">
+            Подивитися на карті
+          </button>
+          <iframe id="map-sungrilla" title="Карта Sungrilla"></iframe>
+        </article>
+
+        <article id="galera">
+          <img
+            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800"
+            alt="Комплекс Галера на Дніпрі"
+          />
+          <h3>Галера</h3>
+          <p>
+            Комплекс на березі Дніпра. Адреса: вул. Набережно-Корчуватська, 35.
+          </p>
+          <p class="price">1000 грн / людина / день</p>
+          <p>Стандартний шезлонг. Вихідні: 1200 грн.</p>
+          <button onclick="showMap('map-galera', 50.356, 30.545)">
+            Подивитися на карті
+          </button>
+          <iframe id="map-galera" title="Карта комплексу Галера"></iframe>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>Телефон: +38 044 123 45 67</p>
+      <p>© 2026 Сонячна Подорож</p>
+    </footer>
+
+    <script>
+      // Ця функція відкриває карту комплексу
+      // mapId — id карти, lat і lng — координати на Землі
+      function showMap(mapId, lat, lng) {
+        var map = document.getElementById(mapId);
+
+        // Адреса карти Google з міткою комплексу
+        map.src =
+          "https://www.google.com/maps?q=" + lat + "," + lng + "&z=16&output=embed";
+
+        // Показуємо карту під кнопкою
+        map.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

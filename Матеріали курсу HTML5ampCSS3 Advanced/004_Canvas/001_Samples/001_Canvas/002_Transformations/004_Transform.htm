@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>transform transformation</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let $ = function(id) {
+                return document.getElementById(id);
+            }
+
+            // Контекст для canvas
+            let context = $("canvas").getContext("2d");
+
+            let img = new Image();
+            img.src = "canvas.jpg";
+            img.onload = draw;
+            $("btn").onclick = draw;
+
+            function draw() {
+                // Очищення всього полотна.
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+                let scaleX = $("a").value;
+                let skewX = $("b").value;
+                let skewY = $("c").value;
+                let scaleY = $("d").value;
+                let transformX = $("tx").value;
+                let transformY = $("ty").value;
+
+                // Збереження стану полотна та початку системи координат.
+                context.save();
+                // Переміщення
+                context.translate(100, 100);
+                // Трансформація
+                context.transform(scaleX, skewX, skewY, scaleY, transformX, transformY);
+                context.drawImage(img, 0, 0, 100, 100);
+                // Відновлення збереженого стану полотна.
+                context.restore();
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+        
+        div {
+            border: 1px solid gray;
+            padding: 8px;
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="300" height="300">
+    </canvas>
+    <div>
+        масштаб X
+        <input type="text" id="a" value="1">
+        <br> викривлення по X
+        <input type="text" id="c" value="0">
+        <br> викривлення по Y
+        <input type="text" id="b" value="0">
+        <br> масштаб Y
+        <input type="text" id="d" value="1">
+        <br> переміщення X
+        <input type="text" id="tx" value="0">
+        <br> переміщення Y
+        <input type="text" id="ty" value="0">
+        <input type="button" id="btn" value="transform" />
+    </div>
+</body>
+
+</html>
