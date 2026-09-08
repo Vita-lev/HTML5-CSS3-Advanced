@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+body {
+  margin: 0;
+  background-color: $bg;
+  color: $text;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: $accent;
+  text-align: center;
+  padding: 40px 16px;
+}
