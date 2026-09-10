@@ -20,7 +20,7 @@
     display: grid;
     justify-items: center;
     row-gap: 4px;
-    color: $color-pink;
+    color: $color-nav;
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.34em;
@@ -40,9 +40,10 @@
   }
 
   &__link {
-    font-size: 14px;
+    font-family: $font-nav;
+    font-size: 20px;
     font-weight: 400;
-    color: $color-white;
+    color: $color-nav;
 
     &:hover {
       color: $color-pink;

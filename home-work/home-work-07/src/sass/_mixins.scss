@@ -10,15 +10,15 @@
 @mixin button {
   display: inline-grid;
   place-items: center;
-  min-width: 300px;
-  height: 50px;
+  width: 437px;
+  height: 62px;
   padding-inline: 32px;
   border: 0;
   border-radius: $radius-btn;
   background-color: $color-button;
-  color: $color-white;
+  color: $color-nav;
   font-family: $font-ui;
-  font-size: 13px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-decoration: none;

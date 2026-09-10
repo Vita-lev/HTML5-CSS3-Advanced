@@ -4,7 +4,7 @@
 .features {
   @include container;
   display: grid;
-  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: repeat(3, 250px);
   justify-content: center;
   column-gap: 88px;
   padding-top: 24px;
@@ -28,9 +28,9 @@
   }
 
   &__text {
-    max-width: 190px;
-    font-size: 13px;
+    max-width: 250px;
+    font-size: 16px;
     line-height: 1.45;
-    color: $color-muted;
+    color: $color-white;
   }
 }
