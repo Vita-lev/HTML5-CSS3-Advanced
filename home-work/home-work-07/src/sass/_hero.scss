@@ -1,0 +1,93 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  @include container;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  padding-top: 36px;
+
+  &__content {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    z-index: 3;
+    display: grid;
+    justify-items: start;
+    align-content: start;
+    row-gap: 18px;
+    padding-top: 8px;
+    padding-left: 56px;
+  }
+
+  &__eyebrow {
+    margin-left: -48px;
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 46px;
+    font-weight: 400;
+    color: $color-pink;
+    line-height: 1;
+  }
+
+  &__title {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: baseline;
+    column-gap: 18px;
+    font-family: $font-serif;
+    font-weight: 500;
+    font-size: 68px;
+    letter-spacing: 0.08em;
+    line-height: 0.95;
+    white-space: nowrap;
+
+    span {
+      font-style: italic;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: $color-pink;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: $color-muted;
+  }
+
+  &__cta {
+    @include button;
+    margin-top: 8px;
+  }
+
+  &__photo {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    z-index: 1;
+    justify-self: end;
+    width: min(100%, 640px);
+    margin-top: 72px;
+    margin-right: -32px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+
+  &__arc {
+    position: absolute;
+    right: 7%;
+    top: 10%;
+    z-index: 2;
+    width: 560px;
+    height: 560px;
+    border: 1.2px solid $color-arc;
+    border-radius: 50%;
+    clip-path: inset(42% 42% 0 0);
+    pointer-events: none;
+  }
+}

@@ -1,4 +1,4 @@
-console.log('Код з src/index.js');
+console.log('Код з srs/index.js');
 console.log('Webpack збереже зібраний файл у папку dist');
 
 

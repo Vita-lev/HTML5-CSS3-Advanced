@@ -1,10 +1,9 @@
 {
-  "name": "exemp",
+  "name": "home-work-07",
   "version": "1.0.0",
-  "description": "Приклад Node.js",
+  "description": "Домашнє завдання 7. SASS + Webpack",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch --config webpack.config.js"
   },
@@ -12,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^7.1.5",
+    "sass": "^1.104.0",
+    "sass-loader": "^17.0.1",
+    "style-loader": "^4.0.0",
     "webpack": "^5.110.3",
     "webpack-cli": "^7.2.3"
   }

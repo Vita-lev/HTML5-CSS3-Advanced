@@ -1,0 +1,36 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.features {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  justify-content: center;
+  column-gap: 88px;
+  padding-top: 8px;
+  padding-bottom: 48px;
+
+  &__item {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    row-gap: 14px;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    stroke: $color-white;
+    fill: none;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__text {
+    max-width: 190px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: $color-muted;
+  }
+}

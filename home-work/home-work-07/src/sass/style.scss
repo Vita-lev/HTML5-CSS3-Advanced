@@ -1,0 +1,5 @@
+// Головний файл стилів. Webpack бере його через src/index.js
+@use 'reset';
+@use 'header';
+@use 'hero';
+@use 'features';
