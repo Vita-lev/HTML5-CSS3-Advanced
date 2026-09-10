@@ -6,8 +6,8 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 560px;
   padding-top: 36px;
+  padding-bottom: 24px;
 
   &__content {
     grid-column: 1 / -1;
