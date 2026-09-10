@@ -5,7 +5,8 @@
   @include container;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 768px;
+  align-items: start;
   padding-top: 36px;
   padding-bottom: 24px;
 
@@ -64,30 +65,31 @@
   }
 
   &__photo {
+    position: relative;
     grid-column: 2 / 3;
     grid-row: 1;
     z-index: 1;
-    justify-self: end;
-    width: min(100%, 640px);
-    margin-top: 72px;
-    margin-right: -32px;
+    width: 768px;
+    height: 640px;
 
     img {
-      width: 100%;
+      width: 768px;
+      height: 640px;
+      object-fit: cover;
     }
   }
 
 
   &__arc {
     position: absolute;
-    right: 7%;
-    top: 10%;
+    top: 40px;
+    left: -40px;
     z-index: 2;
-    width: 560px;
-    height: 560px;
+    width: 640px;
+    height: 640px;
     border: 1.2px solid $color-arc;
     border-radius: 50%;
-    clip-path: inset(42% 42% 0 0);
+    clip-path: inset(42% 48% 0 0);
     pointer-events: none;
   }
 }
